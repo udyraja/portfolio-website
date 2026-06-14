@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { ArrowDown, Download, Mail } from 'lucide-react'
-import { SOCIALS, STATS } from '@/lib/portfolio-data'
+import { SOCIALS } from '@/lib/portfolio-data'
 
 const container = {
   hidden: {},
@@ -44,7 +44,7 @@ export function Hero() {
           className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground"
         >
           <span className="h-2 w-2 rounded-full bg-accent" />
-          Building Digital Storefronts for US brands · Open to relocation
+          Open to international opportunities
         </motion.p>
 
         <motion.h1
@@ -58,20 +58,17 @@ export function Hero() {
           variants={item}
           className="mt-4 text-lg font-medium text-accent sm:text-xl"
         >
-          Senior Web Developer <span className="text-muted-foreground">|</span>{' '}
-          UI/UX Designer <span className="text-muted-foreground">|</span>{' '}
-          WordPress &amp; Shopify
+          Front-End Engineer <span className="text-muted-foreground">|</span> UI
+          Specialist
         </motion.p>
 
         <motion.p
           variants={item}
           className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          Creative, technically sharp developer and designer with 5+ years
-          building enterprise Digital Storefronts for major US brands. I turn
-          complex eCommerce requirements into fast, accessible, conversion-driven
-          experiences — and I&apos;ve lifted conversions by up to 30% along the
-          way.
+          Front-End Engineer with experience building responsive, user-friendly
+          web applications and ensuring quality through UI automation testing.
+          Passionate about creating seamless digital experiences.
         </motion.p>
 
         <motion.div

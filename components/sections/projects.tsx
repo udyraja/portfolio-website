@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { ArrowUpRight } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
+import { GithubIcon } from '@/components/brand-icons'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { PROJECTS } from '@/lib/portfolio-data'
@@ -12,9 +13,9 @@ export function Projects() {
     >
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
         <SectionHeading
-          eyebrow="Storefronts & Featured Work"
-          title="Enterprise storefronts for major US brands"
-          description="Digital Storefront platforms and design work built for US companies and beyond — engineered for scale, conversion, and brand consistency."
+          eyebrow="Featured Projects"
+          title="Selected work"
+          description="A few projects that showcase responsive interfaces, clean architecture, and a focus on quality."
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -29,18 +30,10 @@ export function Projects() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {project.featured && (
-                    <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
-                      US Enterprise
-                    </span>
-                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs font-medium uppercase tracking-wide text-accent">
-                    {project.category}
-                  </p>
-                  <h3 className="mt-1.5 font-heading text-xl font-semibold text-foreground">
+                  <h3 className="font-heading text-xl font-semibold text-foreground">
                     {project.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -58,13 +51,24 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="mt-5 border-t border-border pt-4 text-sm">
+                  <div className="mt-5 flex items-center gap-4 border-t border-border pt-4 text-sm">
                     <a
-                      href={project.link}
-                      className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors hover:text-accent"
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-accent"
                     >
-                      View case study
-                      <ArrowUpRight className="h-4 w-4" />
+                      <GithubIcon className="h-4 w-4" />
+                      Code
+                    </a>
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-accent"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
                     </a>
                   </div>
                 </div>
