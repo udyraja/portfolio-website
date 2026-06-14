@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { ArrowDown, Download, Mail } from 'lucide-react'
 import { SOCIALS } from '@/lib/portfolio-data'
@@ -37,66 +38,90 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto w-full max-w-3xl text-center"
+        className="mx-auto w-full max-w-5xl"
       >
-        <motion.p
-          variants={item}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground"
-        >
-          <span className="h-2 w-2 rounded-full bg-accent" />
-          Open to international opportunities
-        </motion.p>
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          {/* Text Content */}
+          <div>
+            <motion.p
+              variants={item}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground"
+            >
+              <span className="h-2 w-2 rounded-full bg-accent" />
+              Open to international opportunities
+            </motion.p>
 
-        <motion.h1
-          variants={item}
-          className="font-heading text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl"
-        >
-          Udara Rajamanthri
-        </motion.h1>
+            <motion.h1
+              variants={item}
+              className="font-heading text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl"
+            >
+              Udara Rajamanthri
+            </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="mt-4 text-lg font-medium text-accent sm:text-xl"
-        >
-          Front-End Engineer <span className="text-muted-foreground">|</span> UI
-          Specialist
-        </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-4 text-lg font-medium text-accent sm:text-xl"
+            >
+              Front-End Engineer <span className="text-muted-foreground">|</span> UI Specialist
+            </motion.p>
 
-        <motion.p
-          variants={item}
-          className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          Front-End Engineer with experience building responsive, user-friendly
-          web applications and ensuring quality through UI automation testing.
-          Passionate about creating seamless digital experiences.
-        </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
+              Crafting responsive, user-friendly web applications with a focus on quality and detail. 
+              Experienced in UI automation testing, modern React development, and translating designs 
+              into accessible interfaces that scale.
+            </motion.p>
 
-        <motion.div
-          variants={item}
-          className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
-        >
-          <a
-            href="#projects"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto"
+            <motion.div
+              variants={item}
+              className="mt-9 flex flex-col items-start justify-start gap-3 sm:flex-row"
+            >
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                View My Work
+              </a>
+              <a
+                href="/Udara%20Rajamanthri%20Portfolio_compressed.pdf"
+                download
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5"
+              >
+                <Download className="h-4 w-4" />
+                Download CV
+              </a>
+              <a
+                href={`mailto:${SOCIALS.email}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:bg-accent/5"
+              >
+                <Mail className="h-4 w-4" />
+                Contact
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Professional Headshot */}
+          <motion.div
+            variants={item}
+            className="relative mx-auto w-full max-w-md"
           >
-            View My Work
-          </a>
-          <a
-            href="/udara-rajamanthri-cv.pdf"
-            download
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent sm:w-auto"
-          >
-            <Download className="h-4 w-4" />
-            Download CV
-          </a>
-          <a
-            href={`mailto:${SOCIALS.email}`}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent sm:w-auto"
-          >
-            <Mail className="h-4 w-4" />
-            Contact Me
-          </a>
-        </motion.div>
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-border bg-secondary shadow-2xl">
+              <Image
+                src="/headshot.jpg"
+                alt="Udara Rajamanthri Professional Headshot"
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+            {/* Decorative accent */}
+            <div className="absolute -bottom-6 -right-6 h-24 w-24 rounded-full border border-accent/20 bg-accent/5" />
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.a
